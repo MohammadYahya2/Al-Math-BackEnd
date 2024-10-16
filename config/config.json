@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "1111",
+    "username": "avnadmin",
+    "password": "AVNS_4GRbXq5o1hEgY5VrAxS",
     "database": "al_malath",
-    "host": "127.0.0.1",
+    "host": "dam3a-db-my-ecommerce-app.b.aivencloud.com",
+    "port": "21424",
     "dialect": "mysql"
   },
   "test": {
