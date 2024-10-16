@@ -2,6 +2,10 @@ const express = require("express");
 const db = require("./models");
 const bodyParser = require("body-parser");
 const userRoutes = require("./routes/users");
+const legalDocsRoutes = require("./routes/legalDocs");
+const commentsRoutes = require("./routes/comments");
+const coursesRoutes = require("./routes/courses");
+
 const { roles } = require("./models"); // Ensure you import your roles model
 require("dotenv").config();
 
@@ -20,6 +24,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/users", userRoutes);
+app.use("/docs", legalDocsRoutes);
+app.use("/comments", commentsRoutes);
+app.use("/courses", coursesRoutes);
 
 async function startListening() {
   try {

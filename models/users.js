@@ -25,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
 
   users.associate = function (models) {
     users.belongsTo(models.roles, { foreignKey: "roleId" });
+    users.hasMany(models.comments, { foreignKey: "userId" }); // Association with comments table
   };
 
   return users;
