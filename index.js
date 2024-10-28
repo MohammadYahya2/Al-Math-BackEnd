@@ -6,7 +6,7 @@ const legalDocsRoutes = require("./routes/legalDocs");
 const commentsRoutes = require("./routes/comments");
 const coursesRoutes = require("./routes/courses");
 
-const { roles } = require("./models"); // Ensure you import your roles model
+const { roles, users } = require("./models"); // Ensure you import your roles model
 require("dotenv").config();
 
 const PORT = process.env.PORT;
@@ -32,6 +32,7 @@ async function startListening() {
   try {
     await db.sequelize.sync({ force: false }).then(async () => {
       await roles.addDefaultRoles();
+      await users.addAdminUser("admin", "admin@admin.com", "admin1234");
       app.listen(PORT, () => {
         console.log(`Server listening on port ${PORT}!`);
       });
