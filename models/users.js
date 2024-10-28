@@ -28,5 +28,22 @@ module.exports = (sequelize, DataTypes) => {
     users.hasMany(models.comments, { foreignKey: "userId" }); // Association with comments table
   };
 
+  users.addAdminUser = async (username, email, password) => {
+    const adminRoleId = 1;
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    try {
+      const newUser = await users.create({
+        username,
+        email,
+        password: hashedPassword,
+        roleId: adminRoleId,
+      });
+      return newUser;
+    } catch (error) {
+      console.error("Error creating admin user:", error);
+      throw error;
+    }
+  };
   return users;
 };
