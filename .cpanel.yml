@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOY_PATH=/home/almalsxs/Al-Math-BackEnd
+    - cd $DEPLOY_PATH
+    - /opt/cpanel/ea-nodejs16/bin/npm install
+    - pm2 restart index.js --name "Al-Math-BackEnd"
