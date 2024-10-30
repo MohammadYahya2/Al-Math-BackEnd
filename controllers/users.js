@@ -70,7 +70,7 @@ const signUp = async (req, res) => {
       username,
       password: hashedPassword,
       email,
-      roleId: 1,
+      roleId: 2,
     });
 
     const userRole = await roles.findOne({ where: { id: newUser.roleId } });
