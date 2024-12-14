@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
-      const newUser = await users.create({
+      const newUser = await users.findOrCreate({
         username,
         email,
         password: hashedPassword,
